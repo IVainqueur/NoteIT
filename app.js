@@ -8,6 +8,9 @@ let Editing = {
 if(localStorage.newNotes == undefined){
     localStorage.newNotes = JSON.stringify([])
 }
+if(localStorage.deletedNotes == undefined){
+    localStorage.deletedNotes = JSON.stringify([])
+}
 
 
 //*Adding a note
