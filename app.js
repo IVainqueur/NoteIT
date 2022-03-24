@@ -78,7 +78,10 @@ for(let note of Notes){
         location.reload()
     })
     //*
-
+    div.style.transition = "1s ease"
+    setTimeout(()=>{
+        div.style.transform = "none"
+    }, 100+i*100)
     i++
 }
 
