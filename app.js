@@ -3,29 +3,27 @@ let Editing = {
     status: false,
     index: null
 }
-//*Making the remove and edit button
-// let R_E_DIV = document.createElement('div')
-// R_E_DIV.innerHTML = "<i class='bx bx-pencil'></i> <i class='bx bx-x' ></i>"
-// R_E_DIV.className = "R_E_DIV"
+
+//*Checking if the newNotes object exists
+if(localStorage.newNotes == undefined){
+    localStorage.newNotes = JSON.stringify([])
+}
 
 
-//*
+//*Adding a note
 document.querySelector('.Add button').addEventListener('click', ()=>{
     document.querySelector('.Add textarea').classList.add('AddingClass')
     if(alreadyDid){
         let theText = document.querySelector('.Add textarea').value
         if(theText == '') return alert('Please make a proper note!')
-        // console.log([theText, Date.now()])
-        // return
+        
         let one = JSON.parse(localStorage.newNotes)
         if(Editing.status){
             one[Editing.index][0] = theText
-            // console.log(one[Editing.index])
         }else{
             one.push([theText, Date.now()])
         }
-        // console.log(one)
-        // return
+        
         localStorage.newNotes = JSON.stringify(one)
         document.querySelector('.Add textarea').classList.remove('AddingClass')
         setTimeout(()=>{location.reload()}, 200)     
